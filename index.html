@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso virtual</title>
+</head>
+
+<body>
+  <input id="curso" style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 300px;">
+  <h2 id="curso_lblCurso">Presentaron el QUIZ</h2>
+  <ol>
+    <li id="curso_liPregunta1">¿Cuánto es 5 x 8?</li>
+    <li id="curso_liPregunta2">¿Qué color da azul con amarillo?</li>
+  </ol>
+  <div>
+    <table style="text-align: center;">
+      <thead>
+        <tr>
+          <th>Cedula</th>
+          <th>Nombre</th>
+          <th>Resp.1</th>
+          <th>Resp.2</th>
+        </tr>
+      </thead>
+      <tbody id="curso_tblRegistros"></tbody>
+    </table>
+  </div>
+  <br>
+  <button id="curso_btRecargar">Recargar</button>
+  <label>
+    <input id="curso_chkSoloCorrectos" type="checkbox">Solo correctos</label>
+  </section>
+
+  <script type="module">
+    import Cl_cCurso from "./dist/controllers/Cl_cCurso.js";
+
+    import Cl_mCurso from "./dist/models/Cl_mCurso.js";
+    import Cl_vCurso from "./dist/views/Cl_vCurso.js";
+
+    // 1. Instanciamos el modelo y la vista
+    const modeloCurso = new Cl_mCurso();
+    const vistaCurso = new Cl_vCurso();
+
+    // 2. Inyectamos las vistas en los controladores (¡La magia ocurre aquí!)
+    new Cl_cCurso({ modelo: modeloCurso, vista: vistaCurso });
+  </script>
+</body>
+
+</html>
