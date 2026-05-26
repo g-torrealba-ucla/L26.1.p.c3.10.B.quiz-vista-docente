@@ -1,7 +1,6 @@
 import { I_vCurso } from "../interfaces/I_vCurso.js";
 import Cl_mCurso from "../models/Cl_mCurso.js";
-import Cl_mQuiz from "../models/Cl_mQuiz.js";
-import Cl_sQuiz from "../services/Cl_sQuiz.js";
+import Cl_sCurso from "../services/Cl_sCurso.js";
 
 export default class Cl_cCurso {
   private modelo: Cl_mCurso;
@@ -17,12 +16,12 @@ export default class Cl_cCurso {
     this.btRecargarOnClick();
   }
   async btRecargarOnClick() {
-    let resultado = await Cl_sQuiz.obtenerQuices();
+    let resultado = await Cl_sCurso.obtenerQuices();
     if (resultado.ok === false) {
       alert("Error: No se pudo conectar con el servidor");
       return;
     }
-    this.modelo.setQuices(resultado.quices);
+    this.modelo.setQuices(resultado.tabla);
     this.vista.mostrarQuices(this.modelo.getQuices(this.vista.soloCorrectos));
   }
 }

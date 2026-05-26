@@ -2,7 +2,7 @@ import Cl_mQuiz from "./Cl_mQuiz.js";
 
 export default class Cl_mCurso {
   private quices: Cl_mQuiz[] = [];
-  setQuices(array: Cl_mQuiz[]) {
+  setQuices(array: any[]) {
     this.quices = [];
     array.forEach((quiz) => {
       this.quices.push(
